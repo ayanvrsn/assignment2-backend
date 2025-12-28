@@ -2,33 +2,33 @@
 
 A simple, educational web application that integrates real-time weather data, exchange rate information, and dealer location services. Built with a simplified architecture for learning purposes.
 
-## 🚀 Project Overview
+## Project Overview
 
 This project demonstrates a simple integration of third-party APIs with a clean, minimal design. The application provides:
 
-- **Real-time Weather Data**: Current weather conditions for selected cities
-- **Exchange Rate Information**: Real-time currency exchange rates
-- **Dealer Locator**: Find up to 5 nearby car dealerships based on location with interactive map
+- Real-time Weather Data: Current weather conditions for selected cities
+- Exchange Rate Information: Real-time currency exchange rates
+- Dealer Locator: Find up to 5 nearby car dealerships based on location
 
-## 📋 Features
+## Features
 
 ### Core API Integration
-1. **Weather API (OpenWeather)** - Required
+1. Weather API (OpenWeather) - Required
    - Server-side integration
    - Returns temperature, weather description, coordinates, feels-like temperature, wind speed, country code, and rain volume
    - Search by city name or coordinates
 
-2. **Exchange Rate API (ExchangeRate-API.com)**
+2. Exchange Rate API (ExchangeRate-API.com)
    - Real-time currency exchange rates for multiple currencies
    - Supports major currencies (USD, EUR, GBP, JPY, CAD, AUD, etc.)
    - View latest rates for selected base currency
 
-3. **Dealer Locator API (2GIS)**
+3. Dealer Locator API (2GIS)
    - Locate up to 5 nearby car dealerships by coordinates
    - Returns dealership name, address, and distance
-   - Interactive map with markers showing user location and dealers
+   - List view only (no map)
 
-## 🏗️ Architecture
+## Architecture
 
 ### Simplified Structure
 All backend code is consolidated in a single file for simplicity:
@@ -43,7 +43,7 @@ frontend/
 
 This simplified architecture is ideal for educational projects and makes the codebase easier to understand and maintain.
 
-## 🛠️ Setup Instructions
+## Setup Instructions
 
 ### Prerequisites
 - Node.js (v14 or higher)
@@ -55,17 +55,17 @@ This simplified architecture is ideal for educational projects and makes the cod
 
 ### Installation
 
-1. **Clone or navigate to the project directory**
+1. Clone or navigate to the project directory
    ```bash
    cd "AutoVerse Project"
    ```
 
-2. **Install dependencies**
+2. Install dependencies
    ```bash
    npm install
    ```
 
-3. **Configure environment variables**
+3. Configure environment variables
    
    Create a `.env` file in the root directory:
    ```env
@@ -76,13 +76,13 @@ This simplified architecture is ideal for educational projects and makes the cod
    NODE_ENV=development
    ```
 
-4. **Get API Keys**
+4. Get API Keys
    
-   - **OpenWeather API**: Sign up at [OpenWeatherMap](https://openweathermap.org/api) (Free tier available)
-   - **ExchangeRate API**: Sign up at [ExchangeRate-API](https://www.exchangerate-api.com/) (Free tier available)
-   - **2GIS API**: Sign up at [2GIS Developer Portal](https://dev.2gis.com/) (Free tier available, primarily for CIS countries)
+   - OpenWeather API: Sign up at [OpenWeatherMap](https://openweathermap.org/api) (Free tier available)
+   - ExchangeRate API: Sign up at [ExchangeRate-API](https://www.exchangerate-api.com/) (Free tier available)
+   - 2GIS API: Sign up at [2GIS Developer Portal](https://dev.2gis.com/) (Free tier available, primarily for CIS countries)
 
-5. **Start the server**
+5. Start the server
    ```bash
    npm start
    ```
@@ -92,14 +92,14 @@ This simplified architecture is ideal for educational projects and makes the cod
    npm run dev
    ```
 
-6. **Access the application**
+6. Access the application
    
    Open your browser and navigate to:
    ```
    http://localhost:3000
    ```
 
-## 📡 API Endpoints
+## API Endpoints
 
 ### Weather API
 
@@ -108,7 +108,7 @@ This simplified architecture is ideal for educational projects and makes the cod
 GET /api/weather/city?city=New York
 ```
 
-**Response:**
+Response:
 ```json
 {
   "success": true,
@@ -141,10 +141,10 @@ GET /api/weather/coordinates?lat=40.7128&lon=-74.0060
 GET /api/exchange/latest?base=USD
 ```
 
-**Query Parameters:**
+Query Parameters:
 - `base` (optional): Base currency code (default: USD). Examples: USD, EUR, GBP, JPY
 
-**Response:**
+Response:
 ```json
 {
   "success": true,
@@ -170,12 +170,12 @@ GET /api/exchange/latest?base=USD
 GET /api/dealers/coordinates?lat=40.7128&lon=-74.0060&radius=10
 ```
 
-**Query Parameters:**
+Query Parameters:
 - `lat` (required): Latitude
 - `lon` (required): Longitude
 - `radius` (optional): Search radius in km (default: 10)
 
-**Response:**
+Response:
 ```json
 {
   "success": true,
@@ -198,17 +198,17 @@ GET /api/dealers/coordinates?lat=40.7128&lon=-74.0060&radius=10
 }
 ```
 
-**Note**: Returns up to 5 dealerships sorted by distance. Only shows dealerships related to cars/autos.
+Note: Returns up to 5 dealerships sorted by distance. Only shows dealerships related to cars/autos.
 
 ### Health Check
 ```
 GET /api/health
 ```
 
-## 🎨 Design
+## Design
 
 ### Minimalist Approach
-- **Ultra-simplified design** - No gradients, complex shadows, or animations
+- Ultra-simplified design - No gradients, complex shadows, or animations
 - Clean, flat design with basic borders and simple colors
 - Fast loading and minimal CSS (~250 lines)
 - Responsive layout for mobile and desktop
@@ -218,10 +218,9 @@ GET /api/health
 - Simple, intuitive interface
 - Loading states for async operations
 - Clear error messages
-- Interactive 2GIS map for dealer locations
-- Minimal visual distractions - focus on functionality
+- List view for dealer locations (no map)
 
-## 🔒 Security Considerations
+## Security Considerations
 
 - API keys stored in environment variables (never committed to version control)
 - CORS enabled for cross-origin requests
@@ -229,18 +228,18 @@ GET /api/health
 - Error messages don't expose sensitive information
 - Server-side validation of all user inputs
 
-## 📦 Dependencies
+## Dependencies
 
 ### Production Dependencies
-- **express**: Web framework for Node.js
-- **axios**: HTTP client for API requests
-- **cors**: Cross-Origin Resource Sharing middleware
-- **dotenv**: Environment variable management
+- express: Web framework for Node.js
+- axios: HTTP client for API requests
+- cors: Cross-Origin Resource Sharing middleware
+- dotenv: Environment variable management
 
 ### Development Dependencies
-- **nodemon**: Auto-restart server during development
+- nodemon: Auto-restart server during development
 
-## 🧪 Testing
+## Testing
 
 ### Manual Testing
 1. Start the server: `npm start`
@@ -261,15 +260,15 @@ curl "http://localhost:3000/api/exchange/latest?base=USD"
 curl "http://localhost:3000/api/dealers/coordinates?lat=40.7128&lon=-74.0060"
 ```
 
-## 📝 License
+## License
 
 MIT License - feel free to use this project for learning and development purposes.
 
-## 👤 Author
+## Author
 
 AutoVerse Project
 
-## 🙏 Acknowledgments
+## Acknowledgments
 
 - OpenWeatherMap for weather data API
 - ExchangeRate-API for currency data
@@ -279,13 +278,13 @@ AutoVerse Project
 
 ---
 
-**Note**: This project is designed for educational purposes. The simplified architecture (all backend code in one file) and minimal design make it easy to understand and modify for learning web development concepts.
+Note: This project is designed for educational purposes. The simplified architecture (all backend code in one file) and minimal design make it easy to understand and modify for learning web development concepts.
 
-## 🔄 Recent Changes
+## Recent Changes
 
-- **Simplified Architecture**: All backend code consolidated into `server.js` (removed separate routes/controllers/services folders)
-- **Simplified Map Implementation**: Reduced map code complexity from ~365 lines to ~60 lines
-- **Minimal Design**: Removed complex CSS, gradients, animations - now ultra-simple and fast
-- **Removed Features**: Currency converter removed for simplicity
-- **Dealer Info**: Simplified to show only name, address, and distance (removed phone and working hours)
-- **Limited Results**: Dealer search now returns maximum 5 results
+- Simplified Architecture: All backend code consolidated into `server.js` (removed separate routes/controllers/services folders)
+- Simplified Map Implementation: Removed map functionality completely, dealers now shown in list view only
+- Minimal Design: Removed complex CSS, gradients, animations - now ultra-simple and fast
+- Removed Features: Currency converter removed for simplicity
+- Dealer Info: Simplified to show only name, address, and distance (removed phone and working hours)
+- Limited Results: Dealer search now returns maximum 5 results
