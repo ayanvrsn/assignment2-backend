@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Assignment 2</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1><i class="fas fa-car"></i> AutoVerse</h1>
+            <p class="subtitle">Your Virtual Car Showroom Experience</p>
+        </div>
+    </header>
+
+    <main class="container">
+        <section class="weather-section">
+            <h2><i class="fas fa-cloud-sun"></i> Current Weather</h2>
+            <div class="weather-controls">
+                <input type="text" id="cityInput" placeholder="Enter city name (e.g., New York)" />
+                <button id="getWeatherBtn" class="btn-primary">
+                    <i class="fas fa-search"></i> Get Weather
+                </button>
+                <button id="useLocationBtn" class="btn-secondary">
+                    <i class="fas fa-map-marker-alt"></i> Use My Location
+                </button>
+            </div>
+            <div id="weatherDisplay" class="weather-display"></div>
+        </section>
+
+        <section class="exchange-section">
+            <h2><i class="fas fa-exchange-alt"></i> Exchange Rates</h2>
+            <div class="exchange-controls">
+                <select id="baseCurrency" class="currency-select">
+                    <option value="USD">USD - US Dollar</option>
+                    <option value="EUR">EUR - Euro</option>
+                    <option value="GBP">GBP - British Pound</option>
+                    <option value="JPY">JPY - Japanese Yen</option>
+                    <option value="CAD">CAD - Canadian Dollar</option>
+                    <option value="AUD">AUD - Australian Dollar</option>
+                </select>
+                <button id="getRatesBtn" class="btn-primary">
+                    <i class="fas fa-sync-alt"></i> Get Latest Rates
+                </button>
+            </div>
+            <div id="ratesDisplay" class="rates-display"></div>
+        </section>
+
+        <!-- Dealer Locator Section -->
+        <section class="dealers-section">
+            <h2><i class="fas fa-map-marked-alt"></i> Find Nearby Dealers</h2>
+            <div class="dealer-controls">
+                <button id="findNearbyBtn" class="btn-primary">
+                    <i class="fas fa-location-arrow"></i> Find Dealers Near Me
+                </button>
+                <p class="dealer-info-text">
+                    <i class="fas fa-info-circle"></i> Click the button above to find car dealerships near your current location
+                </p>
+            </div>
+            <div id="dealersDisplay" class="dealers-container">
+                <div id="dealersList" class="dealers-list"></div>
+            </div>
+        </section>
+
+        <section class="arvr-section">
+            <h2><i class="fas fa-vr-cardboard"></i> AR/VR Experience</h2>
+            <div class="arvr-container">
+                <div class="arvr-placeholder">
+                    <h3>Coming Soon</h3>
+                    <p>Experience vehicles in immersive 3D with AR/VR technology</p>
+                    <div class="coming-soon-badge">
+                        <i class="fas fa-clock"></i> Coming Soon
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 AutoVerse. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="app.js"></script>
+</body>
+</html>
+
